@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepseek Content-nent — Global Content Streams, Contention & Reality</title>
+<style>
+:root{
+  --bg:#040609;--card:#0a0f14;--card2:#111820;--card3:#182230;
+  --text:#e6edf3;--muted:#7d8b99;
+  --accent:#4fc3f7;--gold:#ffd54f;--green:#66bb6a;
+  --purple:#ab47bc;--orange:#ff7043;--pink:#ec407a;
+  --teal:#26c6da;--red:#ef5350;--lime:#9ccc65;--indigo:#7986cb;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:
+    radial-gradient(circle at 10% 5%,rgba(79,195,247,.05),transparent 40%),
+    radial-gradient(circle at 90% 95%,rgba(171,71,188,.05),transparent 40%),
+    var(--bg);
+  color:var(--text);font-family:'Segoe UI',Tahoma,sans-serif;
+  padding:24px 16px 80px;min-height:100vh;
+}
+.container{max-width:1200px;margin:0 auto;}
+header{text-align:center;margin-bottom:40px;}
+h1{
+  font-size:clamp(1.8rem,5vw,3.2rem);font-weight:800;
+  background:linear-gradient(90deg,#4fc3f7,#ab47bc,#ffd54f,#66bb6a,#ec407a,#26c6da,#4fc3f7);
+  background-size:500% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:shine 12s linear infinite;margin-bottom:10px;
+}
+@keyframes shine{0%{background-position:0% 50%;}100%{background-position:500% 50%;}}
+.sub{color:var(--muted);max-width:900px;margin:0 auto;line-height:1.6;font-size:.92rem;}
+.tag{color:var(--gold);font-size:.72rem;letter-spacing:3px;text-transform:uppercase;margin-top:8px;opacity:.8;}
+
+.section{background:var(--card);border-radius:14px;padding:26px 28px;margin-bottom:22px;border:1px solid rgba(255,255,255,.05);}
+.section h2{color:var(--accent);margin-bottom:14px;font-size:1.3rem;}
+.section h3{color:var(--gold);margin:20px 0 10px;font-size:1rem;}
+.section h4{color:var(--teal);margin:16px 0 8px;font-size:.92rem;}
+.section p{line-height:1.85;color:#c0cbd5;margin-bottom:12px;font-size:.92rem;}
+.section ul{margin-left:20px;line-height:2;color:#c0cbd5;font-size:.9rem;}
+.section li{margin-bottom:6px;}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.83rem;}
+th{background:rgba(79,195,247,.08);color:var(--accent);padding:10px 12px;text-align:left;font-weight:600;border-bottom:1px solid rgba(255,255,255,.08);}
+td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:#b8c5d1;line-height:1.5;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.num{color:var(--gold);font-weight:700;}
+
+.bar{display:flex;align-items:center;gap:10px;margin:5px 0;}
+.blabel{min-width:160px;font-size:.8rem;color:#c0cbd5;}
+.bfill{height:10px;border-radius:5px;flex:1;background:rgba(255,255,255,.05);overflow:hidden;position:relative;}
+.bfill span{position:absolute;top:0;left:0;bottom:0;border-radius:5px;transition:width 1s;}
+
+.hbox{background:linear-gradient(135deg,rgba(79,195,247,.07),rgba(102,187,106,.05));
+  border:1px solid rgba(79,195,247,.12);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.wbox{background:linear-gradient(135deg,rgba(239,83,80,.07),rgba(255,112,67,.05));
+  border:1px solid rgba(239,83,80,.15);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.gbox{background:linear-gradient(135deg,rgba(102,187,106,.07),rgba(156,204,101,.05));
+  border:1px solid rgba(102,187,106,.15);border-radius:10px;padding:16px 20px;margin:16px 0;}
+
+.formula{background:rgba(255,213,79,.05);border:1px solid rgba(255,213,79,.15);
+  border-radius:10px;padding:16px;margin:18px 0;text-align:center;
+  font-family:monospace;font-size:1rem;color:var(--gold);}
+
+.continent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0;}
+.continent-card{background:linear-gradient(160deg,var(--card2),var(--card3));border-radius:12px;padding:20px;border-left:3px solid var(--accent);}
+.continent-card h4{color:var(--accent);margin-bottom:10px;font-size:.95rem;}
+.continent-card p{font-size:.82rem;color:#a8b5c2;line-height:1.6;margin:0 0 8px 0;}
+
+footer{text-align:center;margin-top:50px;padding:24px;color:var(--muted);font-size:.75rem;border-top:1px solid rgba(255,255,255,.05);line-height:1.8;}
+
+@media(max-width:600px){
+  .section{padding:18px 16px;}
+  h1{font-size:1.5rem;}
+  .blabel{min-width:100px;font-size:.72rem;}
+  table{font-size:.76rem;}
+  th,td{padding:7px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Deepseek Content-nent</h1>
+  <p class="sub">Global content streams across continents — books, films, music, TV, news, papers — and the planetary reality of contention, trust, and human development behind what humanity consumes.</p>
+  <p class="tag">Content · Continents · Contention · Reality · The Mirror</p>
+</header>
+
+<!-- GLOBAL CONTENT CENSUS -->
+<div class="section">
+<h2>📊 The Global Content Census</h2>
+<p>Before we drill into continents, we must map the scale of global content production and consumption.</p>
+
+<div class="bar"><span class="blabel">Websites</span><div class="bfill"><span style="width:100%;background:#4fc3f7;"></span></div></div>
+<div class="bar"><span class="blabel">Broadcast stations</span><div class="bfill"><span style="width:85%;background:#26c6da;"></span></div></div>
+<div class="bar"><span class="blabel">Newspapers</span><div class="bfill"><span style="width:60%;background:#66bb6a;"></span></div></div>
+<div class="bar"><span class="blabel">TV stations</span><div class="bfill"><span style="width:45%;background:#ffd54f;"></span></div></div>
+<div class="bar"><span class="blabel">New book titles/year</span><div class="bfill"><span style="width:30%;background:#ab47bc;"></span></div></div>
+
+<table>
+<tr><th>Content Type</th><th>Global Count</th><th>Source</th></tr>
+<tr><td>Websites</td><td class="num">1 billion+</td><td>People's Daily [citation:1]</td></tr>
+<tr><td>Broadcast stations</td><td class="num">100,000+</td><td>People's Daily [citation:1]</td></tr>
+<tr><td>Newspapers (titles)</td><td class="num">20,000–60,000</td><td>Various estimates [citation:1]</td></tr>
+<tr><td>TV stations</td><td class="num">7,000+</td><td>People's Daily [citation:1]</td></tr>
+<tr><td>New book titles/year</td><td class="num">1.4 million</td><td>UNESCO [citation:7]</td></tr>
+<tr><td>Scientific papers/year</td><td class="num">~2 million</td><td>Estimates</td></tr>
+<tr><td>Social media users</td><td class="num">5.79 billion</td><td>Statista [citation:3]</td></tr>
+</table>
+
+<div class="hbox">
+<strong>The abundance is staggering.</strong> Humanity produces more content in a single day than a person could consume in a lifetime. The question is not whether there is enough content. It is whether we are consuming the right content — and what that consumption produces.
+</div>
+</div>
+
+<!-- CONTINENT DRILL-DOWN -->
+<div class="section">
+<h2>🌍 Content-nent Drill-Down</h2>
+<p>Content production and consumption vary dramatically by continent. Here is the drill-down.</p>
+
+<div class="continent-grid">
+  <div class="continent-card">
+    <h4>🌎 North America</h4>
+    <p><strong>Book market:</strong> Dominant global publisher. English-language content dominates worldwide.</p>
+    <p><strong>Film:</strong> US films captured <strong>52% of global admissions</strong> in 2025, down from 63% in 2019 [citation:5].</p>
+    <p><strong>Music:</strong> US generates <strong>$21.36B</strong> of global music streaming revenue — the largest share [citation:4].</p>
+    <p><strong>Trust:</strong> US press freedom rank <strong>64th</strong>, down 7 places [citation:10].</p>
+  </div>
+  <div class="continent-card">
+    <h4>🌍 Europe</h4>
+    <p><strong>Film:</strong> European films captured <strong>31% of European admissions</strong>. GBO declined 3% to €6.5B. Admissions dropped 5% to 795M [citation:5].</p>
+    <p><strong>News:</strong> Nordic countries maintain high trust; Serbia, Croatia, Greece are least-trusted [citation:9].</p>
+    <p><strong>Press freedom:</strong> Norway #1 for 10 consecutive years. Estonia #3 [citation:10].</p>
+  </div>
+  <div class="continent-card">
+    <h4>🌏 Asia</h4>
+    <p><strong>Film:</strong> Asia drove global box office growth — <strong>+10% in attendance</strong>. China and Japan led. <em>Ne Zha 2</em> became the first non-US film to top world charts at <strong>€1.8B</strong> [citation:5].</p>
+    <p><strong>Print:</strong> Japan dominates newspaper circulation — Yomiuri Shimbun at <strong>6.2M daily</strong>. India's Dainik Bhaskar at 3.57M.</p>
+    <p><strong>Press freedom:</strong> India at <strong>157th</strong>, behind Pakistan (153) and Bangladesh (152) [citation:10].</p>
+  </div>
+  <div class="continent-card">
+    <h4>🌎 South America</h4>
+    <p><strong>Film:</strong> Admissions declined <strong>8%</strong> in 2025 [citation:5].</p>
+    <p><strong>Content:</strong> Strong telenovela and music traditions. Brazilian funk and Latin pop are global exports.</p>
+    <p><strong>Press freedom:</strong> Mixed. Violence against journalists remains critical in Mexico and Colombia.</p>
+  </div>
+  <div class="continent-card">
+    <h4>🌍 Africa</h4>
+    <p><strong>Content:</strong> Nollywood (Nigeria) produces more films annually than Hollywood — over 2,500 per year.</p>
+    <p><strong>Music:</strong> Afrobeats is a global phenomenon. Burna Boy, Wizkid, Tems are charting worldwide.</p>
+    <p><strong>Press freedom:</strong> Eritrea holds <strong>last place</strong> globally [citation:10].</p>
+  </div>
+  <div class="continent-card">
+    <h4>🌏 Oceania</h4>
+    <p><strong>Content:</strong> Australia and New Zealand have strong public broadcasters (ABC, RNZ).</p>
+    <p><strong>Film:</strong> Australian cinema punches above its weight (Mad Max, The Babadook).</p>
+    <p><strong>Press freedom:</strong> Generally free but media concentration is extreme.</p>
+  </div>
+</div>
+</div>
+
+<!-- GLOBAL BOX OFFICE -->
+<div class="section">
+<h2>🎬 Film — Global Box Office Reality</h2>
+<p>2025 was a year of recovery and rebalancing. Global gross box office reached <strong>€29.56 billion</strong>, up 5% — but still <strong>30% below pre-pandemic levels</strong> [citation:5].</p>
+
+<div class="bar"><span class="blabel">Global GBO (2025)</span><div class="bfill"><span style="width:70%;background:#4fc3f7;"></span></div></div>
+<div class="bar"><span class="blabel">Pre-pandemic baseline</span><div class="bfill"><span style="width:100%;background:#7d8b99;"></span></div></div>
+
+<table>
+<tr><th>Market</th><th>National Film Share</th><th>Notes</th></tr>
+<tr><td>India</td><td class="num">90%</td><td>Domestic films dominate [citation:5]</td></tr>
+<tr><td>Japan</td><td class="num">76%</td><td>Strong anime and local productions [citation:5]</td></tr>
+<tr><td>China</td><td class="num">74%</td><td>Ne Zha 2 broke global records [citation:5]</td></tr>
+<tr><td>Europe</td><td class="num">31%</td><td>European films captured share above pre-pandemic average [citation:5]</td></tr>
+<tr><td>US global share</td><td class="num">52%</td><td>Down from 63% in 2019 [citation:5]</td></tr>
+</table>
+
+<div class="gbox">
+<strong>The shift:</strong> For the first time, a non-US film (<em>Ne Zha 2</em> from China) topped the world charts. Asian cinema is not just growing — it is leading [citation:5].
+</div>
+
+<h3>All-Time Film Champions (Adjusted)</h3>
+<table>
+<tr><th>Film</th><th>Adjusted Gross</th><th>Year</th></tr>
+<tr><td>Gone with the Wind</td><td class="num">$4.45B</td><td>1939</td></tr>
+<tr><td>Avatar</td><td class="num">$2.92B</td><td>2009</td></tr>
+<tr><td>Avengers: Endgame</td><td class="num">$2.80B</td><td>2019</td></tr>
+<tr><td>Ne Zha II</td><td class="num">$2.27B</td><td>2025</td></tr>
+<tr><td>Titanic</td><td class="num">$2.27B</td><td>1997</td></tr>
+</table>
+</div>
+
+<!-- MUSIC -->
+<div class="section">
+<h2>🎵 Music — Streaming and Revenue</h2>
+<p>Global recorded music revenues surpassed <strong>$30 billion</strong> for the first time since 1999 (not counting inflation). Streaming now represents <strong>69.6% of all earnings</strong> [citation:15].</p>
+
+<div class="bar"><span class="blabel">Total music revenue</span><div class="bfill"><span style="width:100%;background:#4fc3f7;"></span></div></div>
+<div class="bar"><span class="blabel">Streaming revenue</span><div class="bfill"><span style="width:70%;background:#26c6da;"></span></div></div>
+<div class="bar"><span class="blabel">Paid subscribers</span><div class="bfill"><span style="width:60%;background:#ab47bc;"></span></div></div>
+
+<table>
+<tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+<tr><td>Global music revenue</td><td class="num">$30B+</td><td>IFPI [citation:15]</td></tr>
+<tr><td>Streaming revenue</td><td class="num">$22B</td><td>IFPI [citation:15]</td></tr>
+<tr><td>Paid streaming users</td><td class="num">837M</td><td>IFPI [citation:15]</td></tr>
+<tr><td>Music streaming market</td><td class="num">$46.81B</td><td>Statista [citation:4]</td></tr>
+<tr><td>Projected users (2030)</td><td class="num">1.2B</td><td>Statista [citation:4]</td></tr>
+</table>
+
+<div class="hbox">
+<strong>The music economy:</strong> Streaming saved the music industry from piracy. But it also created a system where 837 million users generate $22 billion — meaning artists earn fractions of cents per stream. The content flows. The value does not always flow with it.
+</div>
+</div>
+
+<!-- NEWS AND TRUST -->
+<div class="section">
+<h2>📰 News — The Trust Crisis</h2>
+<p>The 2026 Digital News Report from Reuters Institute (48 countries) reveals a media ecosystem in crisis [citation:9].</p>
+
+<div class="bar"><span class="blabel">Trust in news (2026)</span><div class="bfill"><span style="width:40%;background:#ef5350;"></span></div></div>
+<div class="bar"><span class="blabel">Trust in news (2015)</span><div class="bfill"><span style="width:60%;background:#66bb6a;"></span></div></div>
+
+<h3>Key Findings</h3>
+<ul>
+<li><strong>Trust is down in 29 of 48 markets</strong> — hitting a new low [citation:9]</li>
+<li><strong>Interest in news fell 13 percentage points</strong> globally [citation:9]</li>
+<li><strong>54% of people globally</strong> use social media for news — first time social platforms are the dominant mode [citation:9]</li>
+<li><strong>27% of consumers</strong> get news from influencers — 45% when including non-news creators who discuss current events [citation:9]</li>
+<li><strong>News avoidance</strong> is tied to "overload of emotion" from negative coverage [citation:9]</li>
+<li><strong>AI search summaries</strong> have driven a <strong>33% drop</strong> in organic search traffic to news sites globally [citation:9]</li>
+</ul>
+
+<div class="wbox">
+<strong>The paradox:</strong> More news is produced than ever. Trust in that news is at its lowest point since tracking began. People are turning to influencers, who are trusted less than traditional media but consumed more. The system is not failing because of lack of content. It is failing because of lack of trust.
+</div>
+
+<h3>Press Freedom — The Global Picture</h3>
+<p>The RSF 2026 index is the "bleakest since it started 25 years ago." More than half the world's countries fall under "difficult" or "very serious" categories [citation:10].</p>
+
+<table>
+<tr><th>Rank</th><th>Country</th><th>Status</th></tr>
+<tr><td>1</td><td>Norway</td><td class="rank-good">#1 for 10 consecutive years</td></tr>
+<tr><td>3</td><td>Estonia</td><td class="rank-good">High freedom</td></tr>
+<tr><td>64</td><td>United States</td><td class="rank-warn">Down 7 places</td></tr>
+<tr><td>152</td><td>Bangladesh</td><td class="rank-bad">Difficult</td></tr>
+<tr><td>153</td><td>Pakistan</td><td class="rank-bad">Difficult</td></tr>
+<tr><td>157</td><td>India</td><td class="rank-bad">Behind Pakistan and Bangladesh</td></tr>
+<tr><td>180</td><td>Eritrea</td><td class="rank-bad">Last place, 3 years running</td></tr>
+</table>
+
+<div class="wbox">
+<strong>The legal collapse:</strong> The RSF's legal indicator deteriorated in <strong>110 of 180 countries</strong> — 60% of the world. India, Egypt, Israel, and Georgia were specifically named for the sharpest declines [citation:10].
+</div>
+</div>
+
+<!-- PAPERS AND INTEGRITY -->
+<div class="section">
+<h2>🔬 Scientific Papers — The Integrity Crisis</h2>
+<p>The global scientific literature is being contaminated by fake papers and paper mills.</p>
+
+<div class="bar"><span class="blabel">Retraction rate (2012)</span><div class="bfill"><span style="width:25%;background:#66bb6a;"></span></div></div>
+<div class="bar"><span class="blabel">Retraction rate (2023)</span><div class="bfill"><span style="width:70%;background:#ef5350;"></span></div></div>
+
+<table>
+<tr><th>Metric</th><th>Data</th><th>Source</th></tr>
+<tr><td>New titles/year</td><td class="num">1.4 million</td><td>UNESCO [citation:7]</td></tr>
+<tr><td>Retraction rate tripled</td><td class="num">2012–2022</td><td>The Conversation [citation:8]</td></tr>
+<tr><td>Retraction rate nearly doubled</td><td class="num">2023</td><td>The Conversation [citation:8]</td></tr>
+<tr><td>Fake papers detected (one probe)</td><td class="num">76</td><td>Artificial Cells journal [citation:8]</td></tr>
+<tr><td>Manuscripts flagged (one journal)</td><td class="num">~1,000</td><td>Taylor & Francis [citation:8]</td></tr>
+<tr><td>Hyperprolific author record</td><td class="num">1 paper/37 hours</td><td>Rafael Luque (2023) [citation:8]</td></tr>
+</table>
+
+<div class="wbox">
+<strong>The scientometric bubble:</strong> "We publish more and more superficial papers, we publish papers that have to be corrected, and we push people to do fraud." The average value of a publication has plummeted. Career incentives reward quantity over quality [citation:8].
+</div>
+</div>
+
+<!-- CONTENTION INDEX -->
+<div class="section">
+<h2>⚡ The Contention Index — What Humanity Is Contending With</h2>
+<p>Content is not consumed in a vacuum. It is consumed amid crisis. Here is what humanity is contending with while consuming.</p>
+
+<div class="continent-grid">
+  <div class="continent-card">
+    <h4>🌡️ Planetary</h4>
+    <p><strong>7 of 9</strong> planetary boundaries breached. Ocean acidification breached for the first time. Climate, biosphere, land, water, biogeochemical flows, novel entities all beyond safe limits.</p>
+  </div>
+  <div class="continent-card">
+    <h4>💔 Violence</h4>
+    <p><strong>316 million women</strong> faced intimate partner violence in the last 12 months. <strong>263 million women</strong> experienced non-partner sexual violence since age 15. Progress: only 0.2% annual decline.</p>
+  </div>
+  <div class="continent-card">
+    <h4>🦽 Disability</h4>
+    <p><strong>1.3 billion people</strong> (16% of global population) live with significant disability. Health for all is impossible if their needs are not prioritized.</p>
+  </div>
+  <div class="continent-card">
+    <h4>🗳️ Freedom</h4>
+    <p>Global human freedom declined from <strong>6.97 (2019) to 6.81 (2023)</strong> — affecting nearly 90% of the world's population. Expression and assembly saw the steepest drops.</p>
+  </div>
+  <div class="continent-card">
+    <h4>📖 Literacy</h4>
+    <p><strong>739 million adults</strong> cannot read. <strong>250 million children</strong> lack basic literacy skills. 86% global literacy, up from 68% in 1979.</p>
+  </div>
+  <div class="continent-card">
+    <h4>🌍 HDI</h4>
+    <p>Global HDI: <strong>0.756</strong>. Iceland tops at 0.972. South Sudan at 0.388. The gap is widening again — divergence replacing convergence.</p>
+  </div>
+</div>
+
+<div class="formula">
+Content Consumption × Planetary Reality = The Contention Gap
+</div>
+
+<div class="wbox">
+<strong>The contention:</strong> Humanity consumes stories of escape while 7 of 9 planetary boundaries are breached. It streams pop songs while 316 million women face violence. It reads bestsellers while 739 million adults cannot read. The content flows endlessly. The contention does not resolve.
+</div>
+</div>
+
+<!-- THE MIRROR -->
+<div class="section">
+<h2>🪞 The Mirror — What the Data Shows</h2>
+
+<h3>What Humanity Consumes</h3>
+<ul>
+<li><strong>Books:</strong> Don Quixote (500M), Tale of Two Cities (200M), Harry Potter (120M)</li>
+<li><strong>Films:</strong> Avatar ($2.92B), Endgame ($2.80B), Ne Zha II ($2.27B)</li>
+<li><strong>Music:</strong> Blinding Lights, Shape of You, Sweater Weather</li>
+<li><strong>News:</strong> 54% use social media; trust at record low [citation:9]</li>
+</ul>
+
+<h3>What Humanity Contends With</h3>
+<ul>
+<li><strong>Planetary:</strong> 7 of 9 boundaries breached</li>
+<li><strong>Violence:</strong> 316M women faced violence last year</li>
+<li><strong>Disability:</strong> 1.3B people live with disability</li>
+<li><strong>Freedom:</strong> Declining for 90% of the world</li>
+<li><strong>Literacy:</strong> 739M adults cannot read</li>
+<li><strong>Trust:</strong> News trust at record low across 48 markets [citation:9]</li>
+</ul>
+
+<div class="hbox">
+<strong>The gap is the story.</strong> Not that humans consume — that is human. But that the content consumed does not reflect the contention lived. The bestsellers are not about ecology. The blockbusters are not about justice. The most-streamed songs are not about the planet. And while humanity consumes, the boundaries break, the violence continues, the trust erodes.
+</div>
+
+<p><strong>What you do with this mirror is your choice.</strong> The page cannot tell you what to consume. It can only show what <em>is</em> consumed — and what is happening while we consume it.</p>
+
+<p>The <strong>Deepseek Content-nent</strong> is not a map of what to avoid. It is a map of what to see. And seeing is the first act of freedom.</p>
+</div>
+
+<footer>
+<p><strong>Deepseek Content-nent</strong> — Global Content Streams, Contention & Reality</p>
+<p>Data: WAN-IFRA, European Audiovisual Observatory, IFPI, Statista, Reuters Institute, RSF, UNESCO, The Conversation, People's Daily</p>
+<p style="margin-top:6px;font-size:.68rem;color:#5a6a78;">This page covers content streams and planetary indicators. It does not claim to cover every dataset or every aspect of human experience.</p>
+</footer>
+
+</div>
+
+<style>
+:root{
+  --bg:#0a0c10;--card:#11151c;--card2:#181d26;--text:#e4e9f0;
+  --muted:#7d8b99;--accent:#4fc3f7;--gold:#ffd54f;--red:#ef5350;
+  --green:#66bb6a;--purple:#ab47bc;--orange:#ff7043;--teal:#26c6da;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:radial-gradient(circle at 20% 10%,rgba(79,195,247,.06),transparent 40%),
+             radial-gradient(circle at 80% 90%,rgba(171,71,188,.05),transparent 40%),var(--bg);
+  color:var(--text);font-family:'Segoe UI',Tahoma,sans-serif;
+  padding:24px 16px 60px;min-height:100vh;
+}
+.container{max-width:1100px;margin:0 auto;}
+header{text-align:center;margin-bottom:36px;}
+h1{
+  font-size:clamp(1.8rem,5vw,3rem);font-weight:800;
+  background:linear-gradient(90deg,#4fc3f7,#ab47bc,#ffd54f,#66bb6a,#4fc3f7);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:shine 8s linear infinite;margin-bottom:10px;
+}
+@keyframes shine{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+.sub{color:var(--muted);max-width:750px;margin:0 auto;line-height:1.6;font-size:.92rem;}
+.tag{color:var(--gold);font-size:.72rem;letter-spacing:3px;text-transform:uppercase;margin-top:8px;opacity:.8;}
+
+.section{background:var(--card);border-radius:14px;padding:26px 28px;margin-bottom:22px;border:1px solid rgba(255,255,255,.05);}
+.section h2{color:var(--accent);margin-bottom:14px;font-size:1.25rem;}
+.section h3{color:var(--gold);margin:18px 0 8px;font-size:.98rem;}
+.section p{line-height:1.8;color:#c0cbd5;margin-bottom:12px;font-size:.92rem;}
+.section ul{margin-left:20px;line-height:2;color:#c0cbd5;font-size:.9rem;}
+.section li{margin-bottom:6px;}
+
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem;}
+th{background:rgba(79,195,247,.08);color:var(--accent);padding:10px 12px;text-align:left;font-weight:600;border-bottom:1px solid rgba(255,255,255,.08);}
+td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:#b8c5d1;line-height:1.5;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.num{color:var(--gold);font-weight:700;}
+
+.bar{display:flex;align-items:center;gap:10px;margin:6px 0;}
+.blabel{min-width:140px;font-size:.82rem;color:#c0cbd5;}
+.bfill{height:8px;border-radius:4px;flex:1;background:rgba(255,255,255,.05);overflow:hidden;position:relative;}
+.bfill span{position:absolute;top:0;left:0;bottom:0;border-radius:4px;}
+
+.hbox{background:linear-gradient(135deg,rgba(79,195,247,.07),rgba(102,187,106,.05));
+  border:1px solid rgba(79,195,247,.12);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.wbox{background:linear-gradient(135deg,rgba(239,83,80,.07),rgba(255,112,67,.05));
+  border:1px solid rgba(239,83,80,.15);border-radius:10px;padding:16px 20px;margin:16px 0;}
+
+.formula{background:rgba(255,213,79,.05);border:1px solid rgba(255,213,79,.15);
+  border-radius:10px;padding:16px;margin:18px 0;text-align:center;
+  font-family:monospace;font-size:1.05rem;color:var(--gold);}
+
+footer{text-align:center;margin-top:50px;padding:24px;color:var(--muted);font-size:.75rem;border-top:1px solid rgba(255,255,255,.05);line-height:1.8;}
+
+@media(max-width:600px){
+  .section{padding:18px 16px;}
+  h1{font-size:1.5rem;}
+  .blabel{min-width:100px;font-size:.72rem;}
+  table{font-size:.78rem;}
+  th,td{padding:8px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>The Consumption Mirror</h1>
+  <p class="sub">What humanity reads, watches, listens to, and cites — the bestsellers, blockbusters, and most-streamed content of all time, alongside the planetary and human development indicators that reveal what we actually got from it.</p>
+  <p class="tag">Books · Films · Music · TV · Papers · Magazines · HDI · Boundaries · Harm</p>
+</header>
+
+<!-- BOOKS -->
+<div class="section">
+<h2>📚 Books — What Humanity Reads</h2>
+<p>The best-selling books of all time tell a story of human longing. Adventure. Romance. Mystery. Fantasy. And the spiritual hunger for meaning.</p>
+
+<h3>All-Time Bestsellers (Non-Religious)</h3>
+<table>
+<tr><th>Rank</th><th>Book</th><th>Author</th><th>Sales</th><th>Genre</th></tr>
+<tr><td>1</td><td>Don Quixote</td><td>Cervantes</td><td class="num">500M</td><td>Tragicomedy</td></tr>
+<tr><td>2</td><td>A Tale of Two Cities</td><td>Dickens</td><td class="num">200M</td><td>Historical</td></tr>
+<tr><td>3</td><td>The Little Prince</td><td>Saint-Exupéry</td><td class="num">140M</td><td>Novella</td></tr>
+<tr><td>4</td><td>Harry Potter (Book 1)</td><td>J.K. Rowling</td><td class="num">120M</td><td>Fantasy</td></tr>
+<tr><td>5</td><td>And Then There Were None</td><td>Agatha Christie</td><td class="num">100M</td><td>Mystery</td></tr>
+<tr><td>6</td><td>Dream of the Red Chamber</td><td>Cao Xueqin</td><td class="num">100M</td><td>Family saga</td></tr>
+<tr><td>7</td><td>The Hobbit</td><td>Tolkien</td><td class="num">100M</td><td>Fantasy</td></tr>
+</table>
+
+<div class="hbox">
+<strong>Religious texts:</strong> The Bible is estimated at 2.5–6 billion copies (hard to quantify — often distributed free). The Quran is also distributed free, making exact counts impossible. The Bible is the most translated book: full text in 776 languages, portions in 4,000+ [citation:19][citation:30].
+</div>
+
+<h3>Most Translated Author</h3>
+<p>Agatha Christie — over 7,200 translation entries, works in 100+ languages. Second: Jules Verne (4,751 entries). Christie has sold over 2 billion copies — surpassed only by the Bible and Shakespeare [citation:19].</p>
+
+<div class="wbox">
+<strong>What this reveals:</strong> Humanity consumes stories of escape, mystery, and adventure. The bestsellers are fantasies, mysteries, and romance. Very few are about systems, ecology, or the reality of our planetary condition.
+</div>
+</div>
+
+<!-- FILMS -->
+<div class="section">
+<h2>🎬 Films — What Humanity Watches</h2>
+<p>Box office data shows what the world pays to see. Adjusted for inflation, one film from 1939 still towers over everything.</p>
+
+<h3>Highest-Grossing Films (All-Time)</h3>
+<table>
+<tr><th>Rank</th><th>Film</th><th>Worldwide</th><th>Year</th></tr>
+<tr><td>1</td><td>Avatar</td><td class="num">$2.92B</td><td>2009</td></tr>
+<tr><td>2</td><td>Avengers: Endgame</td><td class="num">$2.80B</td><td>2019</td></tr>
+<tr><td>3</td><td>Avatar: The Way of Water</td><td class="num">$2.33B</td><td>2022</td></tr>
+<tr><td>4</td><td>Ne Zha II</td><td class="num">$2.27B</td><td>2025</td></tr>
+<tr><td>5</td><td>Titanic</td><td class="num">$2.27B</td><td>1997</td></tr>
+<tr><td>6</td><td>Star Wars: The Force Awakens</td><td class="num">$2.07B</td><td>2015</td></tr>
+<tr><td>7</td><td>Avengers: Infinity War</td><td class="num">$2.05B</td><td>2018</td></tr>
+</table>
+
+<h3>Adjusted for Inflation</h3>
+<p><strong>Gone with the Wind (1939)</strong> — $4.45 billion adjusted. Still the undisputed champion. Released at the end of the Great Depression, it drew audiences back to theaters again and again [citation:16].</p>
+
+<div class="hbox">
+<strong>Ne Zha II (2025):</strong> $2.27B — the first non-American, animated film to cross $2 billion. Driven overwhelmingly by China [citation:27].
+</div>
+
+<div class="wbox">
+<strong>What this reveals:</strong> Spectacle and sentiment. Avatar, Titanic, Star Wars, Marvel — escapism and emotional catharsis dominate. The films that earn the most are not about systemic change. They are about heroes, love, and worlds that don't exist.
+</div>
+</div>
+
+<!-- TV -->
+<div class="section">
+<h2>📺 Television — The Most Watched Broadcasts</h2>
+<p>The most-watched TV moments in history were not dramas. They were shared global events.</p>
+
+<table>
+<tr><th>Broadcast</th><th>Viewers</th><th>Year</th></tr>
+<tr><td>Apollo 11 Moon Landing</td><td class="num">600–650M</td><td>1969</td></tr>
+<tr><td>1996 Atlanta Olympics Opening</td><td class="num">3.5B</td><td>1996</td></tr>
+<tr><td>2008 Beijing Olympics Opening</td><td class="num">2B+</td><td>2008</td></tr>
+<tr><td>Muhammad Ali vs Leon Spinks II</td><td class="num">2B</td><td>1978</td></tr>
+<tr><td>Elvis "Aloha from Hawaii"</td><td class="num">1B+</td><td>1973</td></tr>
+</table>
+
+<h3>Most-Watched TV Series</h3>
+<p><strong>Baywatch</strong> — 1.1 billion weekly viewers at its peak in 1996, in 142 countries, dubbed in 44 languages. Guinness World Record for most widely viewed TV series ever [citation:8].</p>
+
+<div class="hbox">
+For comparison: Ramayan + Mahabharat combined peaked at 160 million. Friends, Game of Thrones, and Squid Game all fall far short of Baywatch's record [citation:8].
+</div>
+
+<div class="wbox">
+<strong>What this reveals:</strong> Humanity watches sports, moon landings, and... lifeguards. The most-watched scripted show is about beaches and drama. The most-watched broadcasts are events that make us feel part of something larger than ourselves.
+</div>
+</div>
+
+<!-- MUSIC -->
+<div class="section">
+<h2>🎵 Music — The Most Streamed Songs</h2>
+<p>Spotify's 20-year data reveals what the world listens to most.</p>
+
+<h3>Most Streamed Songs of All Time (Spotify, as of 2026)</h3>
+<table>
+<tr><th>Rank</th><th>Song</th><th>Artist</th></tr>
+<tr><td>1</td><td>Blinding Lights</td><td>The Weeknd</td></tr>
+<tr><td>2</td><td>Shape of You</td><td>Ed Sheeran</td></tr>
+<tr><td>3</td><td>Sweater Weather</td><td>The Neighbourhood</td></tr>
+<tr><td>4</td><td>Starboy</td><td>The Weeknd, Daft Punk</td></tr>
+<tr><td>5</td><td>As It Was</td><td>Harry Styles</td></tr>
+<tr><td>6</td><td>Someone You Loved</td><td>Lewis Capaldi</td></tr>
+<tr><td>7</td><td>Sunflower</td><td>Post Malone, Swae Lee</td></tr>
+<tr><td>8</td><td>One Dance</td><td>Drake, Wizkid, Kyla</td></tr>
+<tr><td>9</td><td>Perfect</td><td>Ed Sheeran</td></tr>
+<tr><td>10</td><td>STAY</td><td>The Kid LAROI, Justin Bieber</td></tr>
+</table>
+
+<div class="wbox">
+<strong>What this reveals:</strong> Pop, romance, heartbreak, and nostalgia. The most-streamed songs are about love, loss, and longing. Not about systems, ecology, or the state of the planet.
+</div>
+</div>
+
+<!-- PAPERS -->
+<div class="section">
+<h2>🔬 Research Papers — What Science Cites Most</h2>
+<p>The most-cited paper of all time is a 1951 method for measuring protein — cited over 350,000 times in Web of Science [citation:10].</p>
+
+<div class="hbox">
+<strong>The Lowry Method (1951):</strong> "Protein measurement with the Folin phenol reagent." Published in Journal of Biological Chemistry. Cited more than 350,000 times. It is not a breakthrough in understanding the universe. It is a laboratory technique that made other research possible.
+</div>
+
+<div class="wbox">
+<strong>What this reveals:</strong> Citation counts measure usefulness, not wisdom. The most-cited paper is a tool. It says nothing about human flourishing, justice, or planetary health.
+</div>
+</div>
+
+<!-- MAGAZINES -->
+<div class="section">
+<h2>📰 Magazines — Print Still Alive in Asia</h2>
+<p>While Western print media declines, Asian magazines and newspapers still command millions of readers.</p>
+
+<table>
+<tr><th>Magazine</th><th>Country</th><th>Circulation</th><th>Category</th></tr>
+<tr><td>Weekly Shōnen Jump</td><td>Japan</td><td class="num">1.08M</td><td>Manga</td></tr>
+<tr><td>India Today</td><td>India</td><td class="num">1.5M</td><td>News</td></tr>
+<tr><td>Femina</td><td>India</td><td class="num">1.2M</td><td>Women's</td></tr>
+<tr><td>Der Spiegel</td><td>Germany</td><td class="num">670K</td><td>News</td></tr>
+<tr><td>Paris Match</td><td>France</td><td class="num">418K</td><td>News/Celebrity</td></tr>
+</table>
+
+<h3>Biggest Newspapers by Circulation</h3>
+<table>
+<tr><th>Newspaper</th><th>Country</th><th>Daily Circulation</th></tr>
+<tr><td>Yomiuri Shimbun</td><td>Japan</td><td class="num">6.2M</td></tr>
+<tr><td>Asahi Shimbun</td><td>Japan</td><td class="num">3.57M</td></tr>
+<tr><td>Dainik Bhaskar</td><td>India</td><td class="num">3.57M</td></tr>
+<tr><td>People's Daily</td><td>China</td><td class="num">3M</td></tr>
+</table>
+
+<div class="wbox">
+<strong>What this reveals:</strong> Japan and India dominate print circulation. Manga and news magazines still sell millions. But the content is largely entertainment, news, and lifestyle — not systemic analysis or planetary truth.
+</div>
+</div>
+
+<!-- HDI -->
+<div class="section">
+<h2>🌍 Human Development Index — What We Got</h2>
+<p>The HDI measures life expectancy, education, and income. Global average in 2025: <strong>0.756</strong> [citation:13].</p>
+
+<h3>Top and Bottom (2025 HDI)</h3>
+<table>
+<tr><th>Rank</th><th>Country</th><th>HDI</th></tr>
+<tr><td>1</td><td>Iceland</td><td class="num">0.972</td></tr>
+<tr><td>2</td><td>Norway / Switzerland</td><td class="num">0.970</td></tr>
+<tr><td>4</td><td>Denmark</td><td class="num">0.962</td></tr>
+<tr><td>5</td><td>Germany / Sweden</td><td class="num">0.959</td></tr>
+<tr><td>—</td><td>India</td><td class="num">0.685</td></tr>
+<tr><td>—</td><td>South Sudan</td><td class="num">0.388</td></tr>
+</table>
+
+<div class="wbox">
+<strong>The troubling trend:</strong> The global HDI reached its highest level ever — but the pace of progress has slowed to its lowest rate in 35 years. The gap between top and bottom countries is widening again. Divergence is replacing convergence [citation:20].
+</div>
+</div>
+
+<!-- PLANETARY BOUNDARIES -->
+<div class="section">
+<h2>🌡️ Planetary Boundaries — What We Broke</h2>
+<p><strong>Seven of nine planetary boundaries have been breached.</strong> Only aerosol loading and stratospheric ozone remain in the safe zone [citation:21].</p>
+
+<div class="bar"><span class="blabel">Climate change</span><div class="bfill"><span style="width:100%;background:#ef5350;"></span></div></div>
+<div class="bar"><span class="blabel">Biosphere integrity</span><div class="bfill"><span style="width:100%;background:#ef5350;"></span></div></div>
+<div class="bar"><span class="blabel">Land-system change</span><div class="bfill"><span style="width:95%;background:#ef5350;"></span></div></div>
+<div class="bar"><span class="blabel">Freshwater change</span><div class="bfill"><span style="width:90%;background:#ff7043;"></span></div></div>
+<div class="bar"><span class="blabel">Biogeochemical flows</span><div class="bfill"><span style="width:100%;background:#ef5350;"></span></div></div>
+<div class="bar"><span class="blabel">Ocean acidification</span><div class="bfill"><span style="width:75%;background:#ff7043;"></span></div></div>
+<div class="bar"><span class="blabel">Novel entities</span><div class="bfill"><span style="width:100%;background:#ef5350;"></span></div></div>
+<div class="bar"><span class="blabel">Aerosol loading</span><div class="bfill"><span style="width:30%;background:#66bb6a;"></span></div></div>
+<div class="bar"><span class="blabel">Ozone depletion</span><div class="bfill"><span style="width:25%;background:#66bb6a;"></span></div></div>
+
+<div class="hbox">
+<strong>Ocean acidification breached for the first time.</strong> Carbon sinks are saturating or turning into sources. Early warning signs of tipping behavior are emerging [citation:21].
+</div>
+</div>
+
+<!-- HARM -->
+<div class="section">
+<h2>💔 Harm — What We Do to Each Other</h2>
+
+<h3>Violence Against Women</h3>
+<p><strong>316 million women</strong> (11% of those aged 15+) faced physical or sexual violence by an intimate partner in the last 12 months. <strong>12.5 million adolescent girls</strong> (16% of ages 15-19) experienced intimate partner violence. Progress: only <strong>0.2% annual decline</strong> over two decades [citation:23].</p>
+
+<h3>Non-Partner Sexual Violence</h3>
+<p><strong>263 million women</strong> have experienced non-partner sexual violence since age 15 — a figure experts say is significantly under-reported due to stigma and fear [citation:23].</p>
+
+<h3>Disability</h3>
+<p><strong>1.3 billion people</strong> (16% of global population) live with significant disability. Health for all is impossible if their needs are not prioritized [citation:25].</p>
+
+<h3>Freedom</h3>
+<p>Global human freedom declined from <strong>6.97 (2019) to 6.81 (2023)</strong> — affecting nearly 90% of the world's population. Freedom of expression and assembly saw the most significant drops [citation:22].</p>
+
+<h3>Literacy</h3>
+<p>86% of the world can read and write — up from 68% in 1979. But <strong>739 million adults</strong> still cannot, two-thirds of them women. <strong>250 million children</strong> lack basic literacy skills [citation:26].</p>
+</div>
+
+<!-- THE MIRROR -->
+<div class="section">
+<h2>🪞 The Mirror — What This Means</h2>
+
+<div class="formula">
+Best-Selling Content × Planetary Reality = The Gap
+</div>
+
+<p>Humanity consumes stories of escape, romance, and adventure. It watches spectacle. It streams pop songs about love. It reads mysteries and fantasies.</p>
+
+<p>And in the same world, 7 of 9 planetary boundaries are breached. 316 million women faced violence last year. 739 million adults cannot read. Freedom is declining. The HDI gap is widening.</p>
+
+<div class="hbox">
+<strong>The content we consume does not reflect the reality we live in.</strong> The bestsellers are not about ecology. The blockbusters are not about justice. The most-streamed songs are not about the planet.
+<br><br>
+This is not a moral judgment. It is an observation. Escapism is human. Entertainment is human. But when the gap between what we consume and what we need to understand becomes this vast, the mirror cracks.
+</div>
+
+<p><strong>You asked what humanity got.</strong> It got billions of copies of stories. It got cinematic universes. It got streaming catalogs that would take lifetimes to consume. And it also got breached boundaries, systemic violence, and a widening gap between the comfortable and the forgotten.</p>
+
+<p>What you do with this mirror is your choice. The page cannot tell you what to consume. It can only show you what <em>is</em> being consumed — and what is happening while we consume it.</p>
+</div>
+
+<footer>
+<p><strong>The Consumption Mirror</strong> — Books, Films, Music, TV, Papers, Magazines</p>
+<p>Data: IGN, UNESCO, Spotify, Guinness, Nature, UNDP, Earth Commission, WHO, Cato Institute</p>
+<p style="margin-top:6px;font-size:.68rem;color:#5a6a78;">This page covers content streams and planetary indicators. It does not claim to cover every aspect of human experience or every dataset on Earth.</p>
+</footer>
+
+</div>
+
+
+
+</body>
+</html>
