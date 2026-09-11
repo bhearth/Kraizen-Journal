@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spacetime Reality — Media, Journalism & The Ground Truth</title>
+<style>
+:root{
+  --bg:#040609;
+  --card:#0a0f14;
+  --card2:#111820;
+  --card3:#182230;
+  --text:#e6edf3;
+  --muted:#7d8b99;
+  --accent:#4fc3f7;
+  --gold:#ffd54f;
+  --green:#66bb6a;
+  --purple:#ab47bc;
+  --orange:#ff7043;
+  --pink:#ec407a;
+  --teal:#26c6da;
+  --red:#ef5350;
+  --lime:#9ccc65;
+  --indigo:#7986cb;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:
+    radial-gradient(circle at 10% 5%, rgba(79,195,247,0.05), transparent 40%),
+    radial-gradient(circle at 90% 95%, rgba(171,71,188,0.05), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(38,198,218,0.03), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  padding:24px 16px 80px;
+  min-height:100vh;
+}
+header{text-align:center;margin-bottom:40px;}
+h1{
+  font-size:clamp(2rem,6vw,4rem);
+  font-weight:800;letter-spacing:-1px;
+  background:linear-gradient(90deg,#4fc3f7,#ab47bc,#ffd54f,#66bb6a,#ec407a,#26c6da,#4fc3f7);
+  background-size:500% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 12s linear infinite;
+  margin-bottom:12px;
+}
+@keyframes shine{0%{background-position:0% 50%;}100%{background-position:500% 50%;}}
+.subtitle{color:var(--muted);font-size:clamp(0.85rem,2vw,1.05rem);margin-bottom:8px;max-width:900px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.tagline{color:var(--gold);font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;opacity:0.8;}
+
+.container{max-width:1100px;margin:0 auto;}
+
+.section{background:var(--card);border-radius:16px;padding:28px 32px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.05);}
+.section h2{color:var(--accent);margin-bottom:16px;font-size:1.4rem;letter-spacing:-0.5px;}
+.section h3{color:var(--gold);margin:20px 0 10px;font-size:1.05rem;}
+.section h4{color:var(--teal);margin:16px 0 8px;font-size:0.95rem;}
+.section p{line-height:1.85;color:#c5d0db;margin-bottom:14px;font-size:0.95rem;}
+.section ul{margin-left:22px;line-height:2;color:#c5d0db;font-size:0.92rem;}
+.section li{margin-bottom:8px;}
+
+.pull-quote{
+  border-left:3px solid var(--purple);
+  background:rgba(171,71,188,0.06);
+  padding:18px 22px;
+  margin:20px 0;
+  border-radius:0 8px 8px 0;
+  font-style:italic;
+  color:#d5c0e0;
+  font-size:1rem;
+  line-height:1.7;
+}
+
+.highlight-box{
+  background:linear-gradient(135deg,rgba(79,195,247,0.08),rgba(102,187,106,0.06));
+  border:1px solid rgba(79,195,247,0.15);
+  border-radius:12px;
+  padding:20px 24px;
+  margin:20px 0;
+}
+
+.warning-box{
+  background:linear-gradient(135deg,rgba(239,83,80,0.08),rgba(255,112,67,0.06));
+  border:1px solid rgba(239,83,80,0.2);
+  border-radius:12px;
+  padding:20px 24px;
+  margin:20px 0;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  margin:24px 0;
+}
+.stat-card{
+  background:var(--card2);
+  border-radius:12px;
+  padding:20px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform 0.2s;
+}
+.stat-card:hover{transform:translateY(-3px);}
+.stat-card .num{font-size:1.8rem;font-weight:800;color:var(--gold);margin-bottom:6px;}
+.stat-card .lbl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;}
+.stat-card .note{font-size:0.7rem;color:var(--muted);margin-top:6px;}
+
+.drill-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+  margin:20px 0;
+}
+.drill-card{
+  background:linear-gradient(160deg,var(--card2),var(--card3));
+  border-radius:14px;
+  padding:22px;
+  border-left:3px solid var(--accent);
+}
+.drill-card h4{color:var(--accent);margin-bottom:12px;font-size:1rem;}
+.drill-card p{font-size:0.85rem;color:#a8b5c2;line-height:1.6;margin:0;}
+
+.tree-container{
+  margin:20px 0;
+  padding:20px;
+  background:rgba(79,195,247,0.03);
+  border-radius:12px;
+  border-left:3px solid var(--teal);
+}
+.tree-item{
+  padding:8px 0 8px 24px;
+  position:relative;
+  color:#c5d0db;
+  font-size:0.9rem;
+}
+.tree-item::before{
+  content:'├─';
+  position:absolute;
+  left:0;
+  color:var(--muted);
+}
+.tree-item.root::before{content:'●';color:var(--accent);}
+.tree-item.root{color:var(--accent);font-weight:600;padding-left:0;}
+.tree-item.root::before{left:0;}
+
+.rank-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:20px 0;
+  font-size:0.85rem;
+}
+.rank-table th{
+  background:rgba(79,195,247,0.1);
+  color:var(--accent);
+  padding:10px 12px;
+  text-align:left;
+  font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.rank-table td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  color:#b8c5d1;
+  line-height:1.5;
+}
+.rank-table tr:hover td{background:rgba(255,255,255,0.02);}
+.rank-good{color:var(--green);}
+.rank-warn{color:var(--gold);}
+.rank-bad{color:var(--red);}
+
+.bar-container{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:8px 0;
+}
+.bar-label{min-width:150px;font-size:0.85rem;color:#c5d0db;}
+.bar-fill{
+  height:10px;
+  border-radius:5px;
+  flex:1;
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,0.05);
+}
+.bar-fill span{
+  position:absolute;
+  top:0;left:0;bottom:0;
+  border-radius:5px;
+}
+
+footer{
+  text-align:center;
+  margin-top:60px;
+  padding:30px 20px;
+  color:var(--muted);
+  font-size:0.78rem;
+  border-top:1px solid rgba(255,255,255,0.05);
+  line-height:1.8;
+}
+
+@media(max-width:600px){
+  .section{padding:20px 18px;}
+  h1{font-size:1.6rem;}
+  .stat-card .num{font-size:1.4rem;}
+  .bar-label{min-width:100px;font-size:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Spacetime Reality</h1>
+  <p class="subtitle">How many papers, newspapers, and news agencies exist on Earth? Who wins the Pulitzers? Where is press freedom collapsing? And what is the economic, mental, and hallucinatory reality behind the news?</p>
+  <p class="tagline">✦ Media Census · Pulitzer Ratios · Press Freedom · Economic Reality · The Hallucination of the Informed ✦</p>
+</header>
+
+<div class="container">
+
+<!-- SECTION 1: THE MEDIA CENSUS -->
+<div class="section">
+<h2>📰 The Media Census — How Many Are There?</h2>
+<p>Before we can judge the quality of journalism, we must count it. The numbers are staggering — and they tell a story of both abundance and concentration.</p>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="num">60,000+</div>
+    <div class="lbl">Newspapers</div>
+    <div class="note">Worldwide (per People's Daily estimate) [citation:2]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">100,000+</div>
+    <div class="lbl">Radio Stations</div>
+    <div class="note">Tens of thousands of frequencies [citation:2]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">7,000+</div>
+    <div class="lbl">TV Stations</div>
+    <div class="note">Global broadcasters [citation:2]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">1 Billion</div>
+    <div class="lbl">Websites</div>
+    <div class="note">Digital publications and platforms [citation:2]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">600,000+</div>
+    <div class="lbl">Journalists</div>
+    <div class="note">Unionized in IFJ across 146 countries [citation:6]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">~2 Million</div>
+    <div class="lbl">Scientific Papers/Year</div>
+    <div class="note">Estimate; 2% potentially fraudulent [citation:1]</div>
+  </div>
+</div>
+
+<div class="highlight-box">
+<strong>The abundance paradox:</strong> Humanity has more media outlets, more journalists, more publishing capacity, and more information than at any point in history. And yet, <strong>clarity is scarcer than ever</strong>. Quantity is not the same as truth.
+</div>
+</div>
+
+<!-- SECTION 2: CONTINENT AND COUNTRY DRILL-DOWN -->
+<div class="section">
+<h2>🌍 Drill-Down — Media by Continent and Country</h2>
+<p>Media concentration follows economic and political power. The "hundreds of regional and dozens of global mainstream media" control the "main trunk of the world news market" [citation:2].</p>
+
+<div class="drill-grid">
+  <div class="drill-card">
+    <h4>🌎 North America</h4>
+    <p><strong>US:</strong> The New York Times alone has won <strong>148 Pulitzer Prizes</strong> as of 2026 — more than any other news organization [citation:3]. Press freedom rank: <span class="rank-warn">64th</span> (down 7 places) [citation:5].</p>
+    <p><strong>Canada:</strong> High press freedom, but local news collapsing.</p>
+  </div>
+  <div class="drill-card">
+    <h4>🌍 Europe</h4>
+    <p><strong>Norway:</strong> <span class="rank-good">#1</span> in press freedom for 10 consecutive years (score 92.72) [citation:5][citation:15].</p>
+    <p><strong>Netherlands:</strong> <span class="rank-good">#2</span> (88.92), <strong>Estonia:</strong> <span class="rank-good">#3</span> (88.54) [citation:15].</p>
+    <p><strong>UK, Germany, France:</strong> Mid-to-high rankings but declining trust.</p>
+  </div>
+  <div class="drill-card">
+    <h4>🌏 Asia</h4>
+    <p><strong>India:</strong> <span class="rank-bad">157th of 180</span> — behind Pakistan, Bangladesh, and Palestine [citation:5]. Legal environment "deteriorated" [citation:5].</p>
+    <p><strong>China:</strong> State-controlled media; high volume, low independence.</p>
+    <p><strong>Japan, South Korea:</strong> High press freedom, strong investigative traditions.</p>
+  </div>
+  <div class="drill-card">
+    <h4>🌎 South America</h4>
+    <p>Mixed. Brazil and Argentina have strong outlets but face political pressure. Violence against journalists in Mexico and Colombia remains critical.</p>
+  </div>
+  <div class="drill-card">
+    <h4>🌍 Africa</h4>
+    <p>Press freedom varies widely. South Africa has strong independent media. Eritrea holds the <strong>last spot</strong> globally [citation:5].</p>
+  </div>
+  <div class="drill-card">
+    <h4>🌏 Oceania</h4>
+    <p><strong>New Zealand, Australia:</strong> Generally free press, but media concentration is extreme.</p>
+  </div>
+</div>
+
+<div class="tree-container">
+<div class="tree-item root">Media Hierarchy</div>
+<div class="tree-item">Global Mainstream (dozens): NYT, BBC, Reuters, AP, AFP, Al Jazeera</div>
+<div class="tree-item">Regional Powers (hundreds): Times of India, Asahi Shimbun, Le Monde, El País</div>
+<div class="tree-item">National Outlets (thousands): Daily newspapers, broadcast networks</div>
+<div class="tree-item">Local News (tens of thousands): Community papers, local radio</div>
+<div class="tree-item">Digital / Independent (millions): Blogs, Substacks, YouTube channels</div>
+</div>
+</div>
+
+<!-- SECTION 3: PULITZER PRIZES VS POPULATION -->
+<div class="section">
+<h2>🏆 Pulitzer Prizes — Winners vs. Population Reality</h2>
+<p>The Pulitzer Prize is America's most prestigious journalism award. But its distribution reveals deep structural realities.</p>
+
+<div class="pull-quote">
+"As of 2026, The New York Times had won <strong>148 Pulitzer Prizes</strong>, more than any other news organization." [citation:3]
+</div>
+
+<h3>The Concentration of Excellence</h3>
+<ul>
+<li>The NYT's 148 prizes represent a <strong>single institution dominating a century of American journalism</strong> [citation:3]</li>
+<li>The prize is US-centric by design — only American citizens can win the Fiction prize [citation:4]</li>
+<li>Only recently have online-only outlets (2009) and audio (2020) been recognized [citation:3]</li>
+</ul>
+
+<div class="warning-box">
+<strong>The ratio problem:</strong> If we measure "excellence per capita," the US dominates. But if we ask "which countries have the <em>conditions</em> that produce excellent journalism," the picture shifts dramatically. Norway, with 5.5 million people, has the world's freest press [citation:15]. India, with 1.4 billion, ranks 157th [citation:5]. Population is not the predictor. <strong>Power structures are.</strong>
+</div>
+</div>
+
+<!-- SECTION 4: PRESS FREEDOM RANKINGS -->
+<div class="section">
+<h2>🗺️ Press Freedom Rankings — The Ground Reality</h2>
+<p>The 2026 World Press Freedom Index, published by Reporters Without Borders (RSF), is the "bleakest since it started 25 years ago" [citation:5].</p>
+
+<table class="rank-table">
+<tr><th>Rank</th><th>Country</th><th>Score</th><th>Status</th></tr>
+<tr><td>1</td><td>Norway</td><td>92.72</td><td class="rank-good">Excellent (10 years #1)</td></tr>
+<tr><td>2</td><td>Netherlands</td><td>88.92</td><td class="rank-good">Excellent</td></tr>
+<tr><td>3</td><td>Estonia</td><td>88.54</td><td class="rank-good">Excellent</td></tr>
+<tr><td>4</td><td>Denmark</td><td>—</td><td class="rank-good">Excellent</td></tr>
+<tr><td>5</td><td>Sweden</td><td>—</td><td class="rank-good">Excellent</td></tr>
+<tr><td>—</td><td>United States</td><td>—</td><td class="rank-warn">64th (down 7)</td></tr>
+<tr><td>—</td><td>India</td><td>—</td><td class="rank-bad">157th (down 6)</td></tr>
+<tr><td>—</td><td>Pakistan</td><td>—</td><td class="rank-bad">153rd</td></tr>
+<tr><td>—</td><td>Bangladesh</td><td>—</td><td class="rank-bad">152nd</td></tr>
+<tr><td>—</td><td>Palestine</td><td>—</td><td class="rank-bad">156th</td></tr>
+<tr><td>180</td><td>Eritrea</td><td>—</td><td class="rank-bad">Last (3 years running)</td></tr>
+</table>
+
+<div class="highlight-box">
+<strong>The collapse is legal, not just political:</strong> The RSF's legal indicator — which measures laws protecting journalists — deteriorated in <strong>60% of countries (110 of 180)</strong> between 2025 and 2026 [citation:5][citation:7]. India, Egypt, Israel, and Georgia were specifically named for legal deterioration [citation:5]. This is not random. It is <strong>systematic criminalization of journalism</strong>.
+</div>
+
+<h3>The IFJ's Ground Report</h3>
+<p>The International Federation of Journalists (IFJ), representing <strong>600,000 journalists in 146 countries</strong>, reports [citation:6]:</p>
+<ul>
+<li><strong>Targeted killings</strong> in Gaza, Ukraine, and Sudan</li>
+<li><strong>Worsening job insecurity</strong> and precarity</li>
+<li><strong>AI and platform dominance</strong> threatening editorial independence</li>
+<li><strong>Political repression</strong> increasing globally</li>
+</ul>
+</div>
+
+<!-- SECTION 5: THE ECONOMIC REALITY -->
+<div class="section">
+<h2>💰 The Economic Reality — Who Really Owns the News</h2>
+<p>Global newspaper publishers had combined revenue of <strong>$125.7 billion in 2025</strong> [citation:8]. That sounds enormous. But compare it to the tech giants.</p>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="num">$125.7B</div>
+    <div class="lbl">Global News Revenue</div>
+    <div class="note">All daily and weekly publications [citation:8]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$350B</div>
+    <div class="lbl">Alphabet Revenue (2024)</div>
+    <div class="note">Google + YouTube [citation:8]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">$102B</div>
+    <div class="lbl">Alphabet Q3 2025</div>
+    <div class="note">Almost the entire global news industry in one quarter [citation:8]</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">65%</div>
+    <div class="lbl">Print Share of Revenue</div>
+    <div class="note">Still dominant, but declining [citation:8]</div>
+  </div>
+</div>
+
+<div class="warning-box">
+<strong>The power shift:</strong> Alphabet earns <strong>178% more per year</strong> than the entire global newspaper industry [citation:8]. Google and Meta control the distribution channels. Publishers fight for crumbs. <strong>Journalism is not failing because of bad reporting. It is failing because the economics were extracted by platforms.</strong>
+</div>
+</div>
+
+<!-- SECTION 6: WHAT THEY WANT YOU TO FOCUS ON -->
+<div class="section">
+<h2>🎯 What They Want You to Focus On</h2>
+<p>Media does not just report reality. It <strong>constructs</strong> it. The question is: whose reality? And for what purpose?</p>
+
+<div class="drill-grid">
+  <div class="drill-card">
+    <h4>Fear & Threat</h4>
+    <p>Conflict, crime, terrorism, economic collapse. Fear drives engagement. Engagement drives advertising. The model rewards fear.</p>
+  </div>
+  <div class="drill-card">
+    <h4>Celebrity & Spectacle</h4>
+    <p>Entertainment news dominates. It distracts from structural issues. Bread and circuses, updated for the algorithm.</p>
+  </div>
+  <div class="drill-card">
+    <h4>Political Horse Race</h4>
+    <p>Who is up, who is down. Not what policies do, but who is winning. This frames politics as sport, not service.</p>
+  </div>
+  <div class="drill-card">
+    <h4>Scarcity & Competition</h4>
+    <p>"You are falling behind." This framing keeps populations anxious, consumptive, and compliant.</p>
+  </div>
+</div>
+
+<div class="highlight-box">
+<strong>The hallucination of the informed:</strong> People who read the news believe they know what is happening. But they know what the media <em>chose</em> to tell them — filtered through ownership, ideology, and the algorithm. The informed citizen is often <strong>the most manipulated citizen</strong>, because they trust the frame.
+</div>
+</div>
+
+<!-- SECTION 7: THE MENTAL AND EMOTIONAL IMPACT -->
+<div class="section">
+<h2>🧠 The Mental & Emotional Impact of the News</h2>
+<p>Journalism is not neutral. It is a <strong>pharmacological intervention</strong> — delivered daily, through screens, into the nervous system.</p>
+
+<ul>
+<li><strong>Anxiety:</strong> Constant threat reporting dysregulates the nervous system</li>
+<li><strong>Despair:</strong> Negative news dominates; positive stories are rare</li>
+<li><strong>Outrage:</strong> The algorithm rewards anger. Anger is addictive.</li>
+<li><strong>Learned helplessness:</strong> Vast problems, no agency. "Nothing I can do."</li>
+<li><strong>Parasocial relationships:</strong> Anchors, commentators, influencers become emotional companions</li>
+</ul>
+
+<div class="pull-quote">
+"More than half the world's countries fall under the 'difficult' or 'very serious' categories for press freedom." [citation:5]
+</div>
+
+<p>And yet, in those same countries, people consume more media than ever. The gap between <strong>information and action</strong> grows. People know more. They do less. This is the hallucination of the informed.</p>
+</div>
+
+<!-- SECTION 8: WHO USED THE MOST OPPORTUNITIES -->
+<div class="section">
+<h2>🏆 Who Used the Most Opportunities Provided by Earth?</h2>
+<p>The question is not who <em>deserves</em> the most. It is who <strong>extracted</strong> the most — and what that extraction cost the planet.</p>
+
+<div class="warning-box">
+<strong>The data is unambiguous:</strong> The world's wealthiest <strong>10% are responsible for two-thirds of global warming since 1990</strong> [citation:9]. The richest 1% contributed <strong>26 times more</strong> to heatwaves than the global average [citation:9].
+</div>
+
+<h3>Consumption as Extraction</h3>
+<ul>
+<li><strong>High-income nations</strong> drove <strong>13.3% of all species range loss</strong> globally through imports alone [citation:10]</li>
+<li>The US, Germany, Japan, and China were the <strong>top contributors</strong> to biodiversity loss in <em>other</em> countries [citation:10]</li>
+<li>Consumption by rich countries caused international biodiversity losses <strong>15 times greater</strong> than their domestic impacts [citation:10]</li>
+<li><strong>25% of critically endangered species</strong> had over half their range loss caused by international consumption [citation:10]</li>
+</ul>
+
+<div class="pull-quote">
+"Climate action that doesn't address the outsized responsibilities of the wealthiest members of society risks missing one of the most powerful levers we have to reduce future harm." [citation:9]
+</div>
+
+<p>Meanwhile, <strong>4.5 billion people are now middle class or above</strong>, and more than half live in Asia [citation:11]. Progress is real for hundreds of millions. But the <em>concentration</em> of wealth and its impact on the biosphere is unprecedented.</p>
+</div>
+
+<!-- SECTION 9: THE REAL OR NOT QUESTION -->
+<div class="section">
+<h2>❓ Are the News, Papers, and Journals Real?</h2>
+<p>This is the deepest question. And the answer is layered.</p>
+
+<h3>Layer 1: The Journals</h3>
+<p>In some fields, up to <strong>50% of published papers are from "paper mills"</strong> — fake research produced for profit [citation:1]. One Russia-linked mill in Latvia claims over <strong>12,650 articles</strong> [citation:1]. Wiley has retracted <strong>11,300 compromised articles</strong> and closed 19 journals [citation:1].</p>
+
+<h3>Layer 2: The News</h3>
+<p>News is real in the sense that events happen. But the <strong>selection, framing, and interpretation</strong> are constructed. Who decides what is news? Whose pain is reported? Whose profit is ignored?</p>
+
+<h3>Layer 3: The Reality Itself</h3>
+<p>And beneath all of this: is reality real? Quantum physics suggests the observer is not separate from the observed. Bohr said "there is no quantum world, only an abstract quantum physical description."</p>
+
+<div class="highlight-box">
+<strong>The honest answer:</strong> Papers can be fake. News can be propaganda. Reality can be an interface. But <strong>suffering is real</strong>. The person who reads the news and feels despair is real. The journalist who risks their life is real. The child who goes hungry is real. The hallucination is not that nothing is real. The hallucination is that <strong>only what is reported is real</strong>.
+</div>
+</div>
+
+<!-- SECTION 10: WHERE SHOULD PEOPLE FOCUS -->
+<div class="section">
+<h2>🎯 Where Should People Focus — The Alternative</h2>
+<p>If the mainstream media model is broken, where should attention go? Here is a framework.</p>
+
+<div class="drill-grid">
+  <div class="drill-card">
+    <h4>Local, Not Global</h4>
+    <p>What is happening in your town, your watershed, your community? Local news is collapsing — and it is the news that matters most for daily life.</p>
+  </div>
+  <div class="drill-card">
+    <h4>Investigative, Not Breaking</h4>
+    <p>Breaking news is often wrong in the first 24 hours. Investigative journalism takes months — and changes systems, not just moods.</p>
+  </div>
+  <div class="drill-card">
+    <h4>Structural, Not Episodic</h4>
+    <p>Why does this keep happening? What systems produce this outcome? Episodic news is a treadmill. Structural analysis is liberation.</p>
+  </div>
+  <div class="drill-card">
+    <h4>Solution-Oriented</h4>
+    <p>What is working? Where is progress happening? Solutions journalism does not ignore problems. It shows that problems are solvable.</p>
+  </div>
+</div>
+
+<div class="formula-box">
+Attention × Awareness × Action = Change<br>
+<em>Reading is not enough. Thinking is not enough. Only action transforms.</em>
+</div>
+</div>
+
+<!-- FINAL SECTION -->
+<div class="section">
+<h2>🌌 The Final Truth — Media, Reality, and the Hallucination</h2>
+<p>There are <strong>60,000 newspapers, 100,000 radio stations, 7,000 TV stations, and 1 billion websites</strong> [citation:2]. There are <strong>600,000 unionized journalists</strong> [citation:6]. The global news industry earns <strong>$125.7 billion</strong> [citation:8].</p>
+
+<p>And yet, press freedom is at its <strong>lowest point in 25 years</strong> [citation:5]. Half the world lives under "difficult" or "very serious" conditions [citation:5]. India, the world's largest democracy, ranks <strong>157th</strong> [citation:5].</p>
+
+<div class="pull-quote">
+"The wars raging at this very moment are nothing more than millions of sleeping people trying to annihilate millions of other sleeping people." — G.I. Gurdjieff
+</div>
+
+<p>The media does not report this. It reports the wars, the politics, the spectacle. It reports what generates engagement. It reports what the owners and advertisers allow.</p>
+
+<p>The hallucination is not that the news is fake. It is that the news is <strong>complete</strong>. It is that reading the news makes you informed. It is that being informed makes you free.</p>
+
+<div class="highlight-box">
+<strong>The Spacetime Reality:</strong> The map is not the territory. The news is not the world. The papers are not the truth. And yet, <strong>you are here</strong>. You have a body. You have attention. You have agency. The only question is: <em>what will you do with them?</em>
+<br><br>
+The media will not save you. The journalists cannot wake you. The papers cannot tell you who you are. That is your work. That is your gift. That is your freedom.
+</div>
+
+<p><strong>Wake up. Look around. Act.</strong></p>
+</div>
+
+</div>
+
+<footer>
+<p>🌍 <strong>Spacetime Reality</strong> — Media, Journalism & The Ground Truth</p>
+<p style="margin-top:8px;">Media Census · Pulitzer Ratios · Press Freedom Rankings · Economic Reality · The Hallucination of the Informed</p>
+<p style="margin-top:8px;font-size:0.7rem;">E = MA² · Sahyog · Every paper is a choice. Every choice is a frame. Every frame is a world.</p>
+<p style="margin-top:8px;font-size:0.68rem;color:#5a6a78;">Sources: RSF 2026, IFJ, WAN-IFRA, Nature, The Conversation, Britannica, World Data Lab</p>
+</footer>
+
+</body>
+</html>
