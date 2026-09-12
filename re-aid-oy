@@ -1,0 +1,369 @@
+<html>
+<body>
+<!-- ============================================================
+     INTEGRAL VIEW — RADIO KOTAGIRI × AUROVILLE
+     A Journal for the Interview Series
+     Place this at the very TOP of the page (right after <body>)
+     ============================================================ -->
+
+<section id="integral-view" style="
+  max-width:1200px;
+  margin:0 auto 30px auto;
+  padding:36px 24px;
+  background:linear-gradient(160deg,#0a0d10,#12181f,#1a2229);
+  border-radius:20px;
+  border:1px solid rgba(79,195,247,0.20);
+  position:relative;
+  overflow:hidden;
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+">
+
+  <!-- Living background -->
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.28;">
+    <div style="position:absolute;top:8%;left:6%;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(79,195,247,0.45),transparent 70%);animation:float1 9s ease-in-out infinite;"></div>
+    <div style="position:absolute;top:55%;left:18%;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,rgba(255,213,79,0.45),transparent 70%);animation:float2 8s ease-in-out infinite;"></div>
+    <div style="position:absolute;top:25%;right:12%;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(102,187,106,0.35),transparent 70%);animation:float1 10s ease-in-out infinite;"></div>
+    <div style="position:absolute;bottom:15%;right:28%;width:55px;height:55px;border-radius:50%;background:radial-gradient(circle,rgba(171,71,188,0.35),transparent 70%);animation:float2 7s ease-in-out infinite;"></div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="text-align:center;margin-bottom:30px;position:relative;z-index:1;">
+    <div style="font-size:2.6rem;margin-bottom:12px;">🎙️ 🏔️ 🕊️ 🪨</div>
+    <h2 style="
+      font-size:clamp(1.5rem,5vw,2.4rem);
+      font-weight:800;
+      background:linear-gradient(90deg,#4fc3f7,#ffd54f,#66bb6a,#ab47bc,#4fc3f7);
+      background-size:400% 100%;
+      -webkit-background-clip:text;background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shine 10s linear infinite;
+      margin-bottom:10px;
+    ">INTEGRAL VIEW</h2>
+    <p style="color:#7d8b99;font-size:0.95rem;max-width:900px;margin:0 auto;line-height:1.75;">
+      An interview series from <strong style="color:#4fc3f7;">Radio Kotagiri</strong> connecting with the people of <strong style="color:#ffd54f;">Auroville</strong> and <strong style="color:#66bb6a;">Pondicherry</strong> — to see what has been built, what is being built, and what is rising from the learnings of the past.
+    </p>
+    <p style="color:#4fc3f7;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-top:12px;">
+      ✦ Laying Simple Stones · One by One · Building the Architecture of Earth ✦
+    </p>
+  </div>
+
+  <!-- OPENING PULL QUOTE -->
+  <div style="background:linear-gradient(135deg,rgba(79,195,247,0.08),rgba(255,213,79,0.05));border-left:3px solid #4fc3f7;border-radius:0 12px 12px 0;padding:22px 26px;margin-bottom:26px;position:relative;z-index:1;">
+    <p style="color:#e6edf3;font-size:1rem;line-height:1.9;margin:0;font-style:italic;max-width:880px;">
+      "Nothing can be taught. But everything can be felt. When one place builds better than another, the older one should not feel envy — it should feel <strong style="color:#66bb6a;">graceful gratitude</strong>. Because the purpose was never ownership. The purpose was evolution."
+    </p>
+  </div>
+
+  <!-- THE THREE PILLARS -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;position:relative;z-index:1;margin-bottom:26px;">
+
+    <!-- RADIO KOTAGIRI -->
+    <div style="background:linear-gradient(160deg,rgba(79,195,247,0.07),rgba(38,198,218,0.04));border-left:4px solid #4fc3f7;border-radius:14px;padding:22px;">
+      <div style="font-size:2.2rem;margin-bottom:10px;">📻 🌿</div>
+      <h3 style="color:#4fc3f7;font-size:1.05rem;margin-bottom:10px;">RADIO KOTAGIRI</h3>
+      <p style="color:#a8b5c2;font-size:0.85rem;line-height:1.75;margin:0 0 12px 0;">
+        A community radio station in the Nilgiris, established in 2014 as the first in the district. For 12 years, it has amplified local voices, addressed grassroots issues, and given tribal youth a platform to be heard.
+      </p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:0.72rem;">
+        <span style="background:rgba(79,195,247,0.15);color:#4fc3f7;padding:3px 10px;border-radius:12px;">12 Years</span>
+        <span style="background:rgba(79,195,247,0.15);color:#4fc3f7;padding:3px 10px;border-radius:12px;">90.4 MHz</span>
+        <span style="background:rgba(79,195,247,0.15);color:#4fc3f7;padding:3px 10px;border-radius:12px;">Kotagiri</span>
+      </div>
+    </div>
+
+    <!-- KEYSTONE FOUNDATION -->
+    <div style="background:linear-gradient(160deg,rgba(102,187,106,0.07),rgba(156,204,101,0.04));border-left:4px solid #66bb6a;border-radius:14px;padding:22px;">
+      <div style="font-size:2.2rem;margin-bottom:10px;">🍯 🏔️</div>
+      <h3 style="color:#66bb6a;font-size:1.05rem;margin-bottom:10px;">KEYSTONE FOUNDATION</h3>
+      <p style="color:#a8b5c2;font-size:0.85rem;line-height:1.75;margin:0 0 12px 0;">
+        Founded in Kotagiri in 1993, working with indigenous communities and traditional honey-hunters. Now operates across the Nilgiris Biosphere and beyond — in Pillur, Sigur, Wayanad, Sathyamangalam, Nilambur, and Potka (Jharkhand).
+      </p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:0.72rem;">
+        <span style="background:rgba(102,187,106,0.15);color:#66bb6a;padding:3px 10px;border-radius:12px;">1993</span>
+        <span style="background:rgba(102,187,106,0.15);color:#66bb6a;padding:3px 10px;border-radius:12px;">Nilgiris</span>
+        <span style="background:rgba(102,187,106,0.15);color:#66bb6a;padding:3px 10px;border-radius:12px;">Multi-State</span>
+      </div>
+    </div>
+
+    <!-- AUROVILLE -->
+    <div style="background:linear-gradient(160deg,rgba(255,213,79,0.07),rgba(255,112,67,0.04));border-left:4px solid #ffd54f;border-radius:14px;padding:22px;">
+      <div style="font-size:2.2rem;margin-bottom:10px;">🌳 🏛️</div>
+      <h3 style="color:#ffd54f;font-size:1.05rem;margin-bottom:10px;">AUROVILLE</h3>
+      <p style="color:#a8b5c2;font-size:0.85rem;line-height:1.75;margin:0 0 12px 0;">
+        Founded in 1968 as a universal township of human unity. Now exploring ties with states across India — from Gujarat to a possible presence at the 2036 Olympics. A model for sustainable architecture, waste management, and integral education.
+      </p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:0.72rem;">
+        <span style="background:rgba(255,213,79,0.15);color:#ffd54f;padding:3px 10px;border-radius:12px;">1968</span>
+        <span style="background:rgba(255,213,79,0.15);color:#ffd54f;padding:3px 10px;border-radius:12px;">Pondicherry</span>
+        <span style="background:rgba(255,213,79,0.15);color:#ffd54f;padding:3px 10px;border-radius:12px;">Global Reach</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WHAT AUROVILLE HAS ACHIEVED -->
+  <div style="background:rgba(255,255,255,0.02);border-radius:16px;padding:26px;margin-bottom:24px;position:relative;z-index:1;">
+    <h3 style="color:#ffd54f;font-size:1.15rem;margin-bottom:18px;text-align:center;">🌍 WHAT AUROVILLE HAS ACHIEVED — AND WHAT OTHERS ARE LEARNING</h3>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+
+      <div style="background:rgba(79,195,247,0.06);border-left:4px solid #4fc3f7;border-radius:10px;padding:16px;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">🤝</div>
+        <h4 style="color:#4fc3f7;font-size:0.92rem;margin-bottom:6px;">STATE COLLABORATIONS</h4>
+        <p style="color:#a8b5c2;font-size:0.78rem;line-height:1.65;margin:0;">
+          Auroville has signed seven MoUs with universities in Gujarat for sustainability, architecture, waste management, and probiotics. It is now exploring similar ties with other states [citation:4].
+        </p>
+      </div>
+
+      <div style="background:rgba(102,187,106,0.06);border-left:4px solid #66bb6a;border-radius:10px;padding:16px;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">🏫</div>
+        <h4 style="color:#66bb6a;font-size:0.92rem;margin-bottom:6px;">INTEGRAL EDUCATION</h4>
+        <p style="color:#a8b5c2;font-size:0.78rem;line-height:1.65;margin:0;">
+          The philosophy of Integral Education — where freedom given to the child leads to discovering their true nature — has inspired schools across India. Auroville's educational model is being shared with over 300 rural schools nationwide [citation:13].
+        </p>
+      </div>
+
+      <div style="background:rgba(171,71,188,0.06);border-left:4px solid #ab47bc;border-radius:10px;padding:16px;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">🌐</div>
+        <h4 style="color:#ab47bc;font-size:0.92rem;margin-bottom:6px;">GLOBAL REACH</h4>
+        <p style="color:#a8b5c2;font-size:0.78rem;line-height:1.65;margin:0;">
+          The "integral-yoga-talks" website makes Sri Aurobindo and The Mother's teachings freely available worldwide [citation:11]. Auroville's model is being studied and adapted in multiple countries.
+        </p>
+      </div>
+
+      <div style="background:rgba(38,198,218,0.06);border-left:4px solid #26c6da;border-radius:10px;padding:16px;">
+        <div style="font-size:1.6rem;margin-bottom:8px;">🌾</div>
+        <h4 style="color:#26c6da;font-size:0.92rem;margin-bottom:6px;">RURAL INITIATIVES</h4>
+        <p style="color:#a8b5c2;font-size:0.78rem;line-height:1.65;margin:0;">
+          The AID school, serving children from surrounding villages, was among the first community welfare initiatives. A new university is being planned for rural youth and start-up initiatives [citation:2][citation:4].
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHO APPROACHED WHOM -->
+  <div style="background:linear-gradient(135deg,rgba(171,71,188,0.06),rgba(79,195,247,0.04));border:1px solid rgba(171,71,188,0.18);border-radius:16px;padding:26px;margin-bottom:24px;position:relative;z-index:1;">
+    <h3 style="color:#ab47bc;font-size:1.15rem;margin-bottom:18px;text-align:center;">🔄 THE INTERVIEW QUESTION — WHO APPROACHED WHOM?</h3>
+
+    <p style="color:#c0cbd5;font-size:0.9rem;line-height:1.85;margin-bottom:18px;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;">
+      The "Integral View" interview seeks to understand: how has the world approached Auroville, and how has Auroville approached the world? What is the pattern of exchange?
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
+
+      <div style="background:rgba(79,195,247,0.06);border-radius:12px;padding:20px;">
+        <div style="font-size:1.8rem;margin-bottom:10px;text-align:center;">🌍 → 🌳</div>
+        <h4 style="color:#4fc3f7;font-size:0.95rem;margin-bottom:10px;text-align:center;">WHO CAME TO AUROVILLE?</h4>
+        <ul style="color:#c0cbd5;font-size:0.8rem;line-height:1.85;margin-left:18px;padding:0;">
+          <li>State governments seeking sustainable models</li>
+          <li>Universities exploring collaboration</li>
+          <li>Volunteers from around the world</li>
+          <li>Researchers studying integral education</li>
+          <li>Rural communities seeking better ways</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,213,79,0.06);border-radius:12px;padding:20px;">
+        <div style="font-size:1.8rem;margin-bottom:10px;text-align:center;">🌳 → 🌍</div>
+        <h4 style="color:#ffd54f;font-size:0.95rem;margin-bottom:10px;text-align:center;">HOW DID AUROVILLE REACH OUT?</h4>
+        <ul style="color:#c0cbd5;font-size:0.8rem;line-height:1.85;margin-left:18px;padding:0;">
+          <li>Gujarat MoUs on sustainability</li>
+          <li>Delhi Ashram teacher training (7 states)</li>
+          <li>Integral Yoga Talks website (global)</li>
+          <li>Rural school partnerships (300+ schools)</li>
+          <li>Possible integration into 2036 Olympics prep</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(171,71,188,0.08);border-left:3px solid #ab47bc;border-radius:8px;padding:16px 20px;margin-top:18px;">
+      <p style="color:#d5c0e0;font-size:0.88rem;line-height:1.75;margin:0;font-weight:600;text-align:center;">
+        🌸 The interview aims to reveal not just what Auroville built — but how it feels watching others build better. That is the true test of grace.
+      </p>
+    </div>
+  </div>
+
+  <!-- THE PROPOSAL -->
+  <div style="background:linear-gradient(135deg,rgba(102,187,106,0.07),rgba(255,213,79,0.05));border:1px solid rgba(102,187,106,0.2);border-radius:16px;padding:28px;margin-bottom:24px;position:relative;z-index:1;">
+    <h3 style="color:#66bb6a;font-size:1.15rem;margin-bottom:16px;text-align:center;">🪨 THE PROPOSAL — LAYING SIMPLE STONES, ONE BY ONE</h3>
+
+    <p style="color:#c0cbd5;font-size:0.92rem;line-height:1.9;margin-bottom:18px;text-align:center;max-width:850px;margin-left:auto;margin-right:auto;">
+      The vision is not to replicate Auroville. It is to <strong style="color:#ffd54f;">evolve beyond it</strong> — to make people live outside homes and offices, more natural, more connected. Every village, every place, every city must step up from the learnings of the past.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+
+      <div style="background:rgba(79,195,247,0.06);border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:6px;">🚪</div>
+        <div style="color:#4fc3f7;font-size:0.82rem;font-weight:600;margin-bottom:4px;">MOVE OUT</div>
+        <p style="color:#a8b5c2;font-size:0.72rem;line-height:1.6;margin:0;">
+          Out of the office. Out of the AC room. Into the sun, the rain, the soil.
+        </p>
+      </div>
+
+      <div style="background:rgba(255,213,79,0.06);border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:6px;">🌿</div>
+        <div style="color:#ffd54f;font-size:0.82rem;font-weight:600;margin-bottom:4px;">BECOME NATURAL</div>
+        <p style="color:#a8b5c2;font-size:0.72rem;line-height:1.6;margin:0;">
+          Live with the rhythms of nature — not against them. Food, water, air, light.
+        </p>
+      </div>
+
+      <div style="background:rgba(171,71,188,0.06);border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:6px;">🪨</div>
+        <div style="color:#ab47bc;font-size:0.82rem;font-weight:600;margin-bottom:4px;">LAY STONES</div>
+        <p style="color:#a8b5c2;font-size:0.72rem;line-height:1.6;margin:0;">
+          Simple stones, one by one. Not a grand plan. Just the next right step.
+        </p>
+      </div>
+
+      <div style="background:rgba(102,187,106,0.06);border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:6px;">🧱</div>
+        <div style="color:#66bb6a;font-size:0.82rem;font-weight:600;margin-bottom:4px;">BUILD SKILLS</div>
+        <p style="color:#a8b5c2;font-size:0.72rem;line-height:1.6;margin:0;">
+          With natural and organic substances. Building new skills in people, not just structures.
+        </p>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(102,187,106,0.1);border-left:3px solid #66bb6a;border-radius:8px;padding:18px 22px;margin-top:20px;">
+      <p style="color:#9ccc65;font-size:0.9rem;line-height:1.8;margin:0;font-weight:600;text-align:center;">
+        🌍 Nothing can be taught. But everything can be felt.<br>
+        When someone does better than us, we should feel graceful — not envious.<br>
+        Because the purpose was never ownership. The purpose was evolution.
+      </p>
+    </div>
+  </div>
+
+  <!-- 40 MILLION INSPIRATORS -->
+  <div style="background:rgba(255,255,255,0.02);border-radius:16px;padding:26px;margin-bottom:24px;position:relative;z-index:1;text-align:center;">
+    <div style="font-size:2.2rem;margin-bottom:12px;">🌟 👥 🌟</div>
+    <h3 style="color:#ffd54f;font-size:1.15rem;margin-bottom:16px;">EARTH ENGINEERING — 40 MILLION INSPIRATORS</h3>
+
+    <p style="color:#c0cbd5;font-size:0.92rem;line-height:1.9;margin:0 auto 18px auto;max-width:800px;">
+      There may be around <strong style="color:#ffd54f;">40 million people</strong> on Earth who are ready to inspire. People who have walked through their own patterns and found something real. People who can light a fire in others — not by teaching, but by being.
+    </p>
+
+    <p style="color:#c0cbd5;font-size:0.92rem;line-height:1.9;margin:0 auto 18px auto;max-width:800px;">
+      This number should grow. Not through marketing. Through <strong style="color:#66bb6a;">lived example</strong>. Through one person seeing another and thinking: "If they can, I can."
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:20px;">
+
+      <div style="background:rgba(79,195,247,0.08);border-radius:10px;padding:14px;">
+        <div style="font-size:1.4rem;margin-bottom:4px;">🪨</div>
+        <div style="color:#4fc3f7;font-size:0.78rem;font-weight:600;">ONE STONE</div>
+        <div style="color:#a8b5c2;font-size:0.7rem;">at a time</div>
+      </div>
+
+      <div style="background:rgba(255,213,79,0.08);border-radius:10px;padding:14px;">
+        <div style="font-size:1.4rem;margin-bottom:4px;">🕊️</div>
+        <div style="color:#ffd54f;font-size:0.78rem;font-weight:600;">ONE PERSON</div>
+        <div style="color:#a8b5c2;font-size:0.7rem;">at a time</div>
+      </div>
+
+      <div style="background:rgba(102,187,106,0.08);border-radius:10px;padding:14px;">
+        <div style="font-size:1.4rem;margin-bottom:4px;">🌍</div>
+        <div style="color:#66bb6a;font-size:0.78rem;font-weight:600;">ONE PLACE</div>
+        <div style="color:#a8b5c2;font-size:0.7rem;">at a time</div>
+      </div>
+
+      <div style="background:rgba(171,71,188,0.08);border-radius:10px;padding:14px;">
+        <div style="font-size:1.4rem;margin-bottom:4px;">✨</div>
+        <div style="color:#ab47bc;font-size:0.78rem;font-weight:600;">40 MILLION</div>
+        <div style="color:#a8b5c2;font-size:0.7rem;">growing</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PUBLICATION & AMAZON -->
+  <div style="background:linear-gradient(135deg,rgba(239,83,80,0.06),rgba(171,71,188,0.04));border:1px solid rgba(239,83,80,0.18);border-radius:16px;padding:26px;margin-bottom:24px;position:relative;z-index:1;">
+    <h3 style="color:#ef5350;font-size:1.15rem;margin-bottom:16px;text-align:center;">📚 PUBLICATION — OPEN SOURCE & AMAZON</h3>
+
+    <p style="color:#c0cbd5;font-size:0.9rem;line-height:1.85;margin-bottom:16px;">
+      This interview will be published in <strong style="color:#4fc3f7;">open source</strong> — freely available to all. It will also be published on <strong style="color:#ffd54f;">Amazon platforms</strong>.
+    </p>
+
+    <p style="color:#c0cbd5;font-size:0.9rem;line-height:1.85;margin-bottom:16px;">
+      The objective is not just to sell books. It is to understand <strong style="color:#66bb6a;">how Amazon positions its best sellers</strong>, why some books become best sellers, and what impact they have after reading.
+    </p>
+
+    <div style="background:rgba(239,83,80,0.08);border-left:3px solid #ef5350;border-radius:8px;padding:16px 20px;">
+      <p style="color:#ef5350;font-size:0.88rem;line-height:1.75;margin:0;font-weight:600;">
+        ⚠️ The question: Do best sellers make people light something within themselves? Or do they simply replace one form of consumption with another?
+      </p>
+    </div>
+
+    <p style="color:#c0cbd5;font-size:0.9rem;line-height:1.85;margin-top:16px;">
+      The goal is to bring content that <strong style="color:#ffd54f;">involves</strong> — that makes people light something <em>within themselves</em>. Instead of reading about others, the light should glow from within.
+    </p>
+  </div>
+
+  <!-- THE INTERVIEW TEAM -->
+  <div style="background:rgba(255,255,255,0.02);border-radius:16px;padding:26px;margin-bottom:24px;position:relative;z-index:1;">
+    <h3 style="color:#4fc3f7;font-size:1.15rem;margin-bottom:18px;text-align:center;">🎙️ THE INTERVIEW TEAM — CONNECTING KOTAGIRI & AUROVILLE</h3>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
+
+      <div style="background:rgba(79,195,247,0.06);border-radius:12px;padding:20px;">
+        <div style="font-size:1.8rem;margin-bottom:10px;text-align:center;">📻</div>
+        <h4 style="color:#4fc3f7;font-size:0.95rem;margin-bottom:10px;text-align:center;">RADIO KOTAGIRI</h4>
+        <ul style="color:#c0cbd5;font-size:0.8rem;line-height:1.85;margin-left:18px;padding:0;">
+          <li>Keystone Foundation Campus</li>
+          <li>Groves Hill Road, Kotagiri</li>
+          <li>Nilgiris District, Tamil Nadu</li>
+          <li>+91-4266-271977</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,213,79,0.06);border-radius:12px;padding:20px;">
+        <div style="font-size:1.8rem;margin-bottom:10px;text-align:center;">🌳</div>
+        <h4 style="color:#ffd54f;font-size:0.95rem;margin-bottom:10px;text-align:center;">AUROVILLE</h4>
+        <ul style="color:#c0cbd5;font-size:0.8rem;line-height:1.85;margin-left:18px;padding:0;">
+          <li>Auroville Foundation</li>
+          <li>Pondicherry, Tamil Nadu</li>
+          <li>Universal Township</li>
+          <li>Integral Yoga · Education · Sustainability</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div style="text-align:center;margin-top:26px;position:relative;z-index:1;">
+    <p style="color:#7d8b99;font-size:0.78rem;line-height:1.7;margin:0;">
+      An interview series for the Sunday showdown — <strong style="color:#ffd54f;">Millennials vs The World</strong><br>
+      <strong style="color:#4fc3f7;">Radio Kotagiri</strong> × <strong style="color:#66bb6a;">Auroville</strong> × <strong style="color:#ab47bc;">Pondicherry</strong>
+    </p>
+    <p style="color:#4fc3f7;font-size:0.72rem;margin-top:12px;font-style:italic;line-height:1.7;">
+      "Laying simple stones, one by one. Building the architecture of Earth — not with brick alone, but with the hands and hearts of those who walk the path."
+    </p>
+  </div>
+
+</section>
+
+<style>
+@keyframes shine{
+  0%{background-position:0% 50%;}
+  100%{background-position:400% 50%;}
+}
+@keyframes float1{
+  0%,100%{transform:translateY(0px);}
+  50%{transform:translateY(-20px);}
+}
+@keyframes float2{
+  0%,100%{transform:translateY(0px);}
+  50%{transform:translateY(15px);}
+}
+</style>
+
+<!-- ============================================================
+     END OF INTEGRAL VIEW
+     ============================================================ -->
+</body>
+</html>
